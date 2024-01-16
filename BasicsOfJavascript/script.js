@@ -186,15 +186,105 @@
 //  ------------- Boolean Conversion
 
 // Number -> Boolean
-Boolean(0); // false
-Boolean(1); // true
-Boolean(100); // true
+// Boolean(0); // false
+// Boolean(1); // true
+// Boolean(100); // true
 
-// Boolean(anyNumber Except 0) // Give True
+// // Boolean(anyNumber Except 0) // Give True
 
-// String -> Boolean
+// // String -> Boolean
 
-Boolean(""); // false
-Boolean("1"); // true
+// Boolean(""); // false
+// Boolean("1"); // true
 
 // Boolean(any length of string except 0) // Give True./
+
+//  ------------ - - - - - - -------- Objects ------------------
+
+// let person = {
+//   name: "utkarsh",
+//   class: 122,
+//   "hello world": "hey's",
+//   version: 8,
+// };
+
+// person = null;
+
+// console.log(person);
+
+// const person2 = person;
+
+// person = null;
+
+// console.log(person, "person"); // null
+// console.log(person2, "person2"); // object
+
+// ------ Get
+
+// console.log(person.name, "person name debug"); // utkarsh
+// console.log(person.class, "person class debug"); // 122
+// console.log(person.hello world, "person class debug"); // undefined
+
+// console.log(person["name"], "person name debug"); // utkarsh
+// console.log(person["class"], "person classss debug"); // 122
+// console.log(person["hello world"], "person hello world debug"); // hey's
+
+// ------ Edit
+
+// person.name = "akash";
+// person["hello world"] = "Welcome to my BARN!!!";
+
+// console.log(person.name, "changed name");
+// console.log(person["hello world"], "changed HELLO NAME");
+
+//  -------- delete
+
+// console.log("version before delete", person.version); // 8
+
+// delete person.version;
+// delete person["hello world"];
+
+// console.log("version after delete", person.version); // undefined
+
+// console.log(person);
+
+// ------------------   ARRAys --------------------
+// [1,2,3,4,5,6,]
+// java: int[] arr = {1,2,3,4}
+
+// let arr = [1, 2, 3, 4, 5, "hey there", true];
+
+// arr = null;
+
+// console.log(arr);
+// console.log(arr.length, "length of array"); // 7
+
+//  ------ get
+
+// console.log(arr[0]); // 1
+// console.log(arr[1]); // 2
+// console.log(arr[arr.length - 1]); // true
+
+// NOTE: WEIRD PART - If you arr.length = 0; the array would become BLANK.
+// arr.length = 0; // do not do this everrrrr..
+
+// ------ edit
+
+// arr[0] = 10000000;
+
+// console.log(arr);
+
+// ------- arrays Property
+
+// 1.  Push..
+
+// const newLength = arr.push("hello");
+
+// console.log(newLength);
+// console.log(arr);
+
+// 2. Pop ...
+
+// const LastElement = arr.pop();
+// console.log(LastElement); // true
+// console.log(arr);
