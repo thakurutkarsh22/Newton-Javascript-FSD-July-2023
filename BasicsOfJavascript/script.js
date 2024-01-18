@@ -288,3 +288,73 @@
 // const LastElement = arr.pop();
 // console.log(LastElement); // true
 // console.log(arr);
+
+//  --------------------- FUNCTIONS ---------------------
+// Look at function folder....
+
+// -------------------- Facts about JS Parsing ------------
+
+// When JS File is Parsed(travelled) It is parsed from TOP to Bottom.
+// Travelling has 2 Phases
+// 1. Parsing phase - Only  Function DECLARATION and Variable DECLARATION.
+// 2. Execution phase - Everything except in Parsing phase.
+
+// --------------------- Hoisting -----------------
+
+/*
+    Variable DECLARATION and Function DECLARATION are Hoisted.
+
+    Hoisted means to bring these 2 things on top of the file.
+*/
+
+// console.log(namePrint("utkrsh"));
+// console.log(namePrint("akash"));
+
+// function namePrint(name) {
+//   return `hey !!! ${name}`;
+// }
+
+//  ------ Fact ---
+// var a = 12; // this line as 2 parts
+
+// the above line can be de-constructed into 2 steps.
+
+// var a; // 1. Variable Declaration
+// a = 12; // 2. Variable Assignment
+
+// Exmple 1
+
+// console.log(a);
+// var a = 12;
+
+// console.log(a);
+
+// Example 2:
+
+// var a;
+// a = 9;
+// console.log(a);
+
+//  ----------------------- Scoping (Scope) ---------------------
+
+// 1. the Js File is a Global iteself.
+// 2. Scope of Var => global And Functional
+
+// Example 1 ->
+// var a = 12; // Scope of a is Global
+// console.log(a); // 12
+
+// if (true) {
+//   console.log(a, "inside of the if block"); // 12
+// }
+
+// console.log(a);
+
+// Example 2 ->
+
+// if (true) {
+//   var a = 100;
+//   console.log(a, "answer 1");
+// }
+
+// console.log(a, "ans 2");
