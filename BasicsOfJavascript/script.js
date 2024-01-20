@@ -200,6 +200,7 @@
 // Boolean(any length of string except 0) // Give True./
 
 //  ------------ - - - - - - -------- Objects ------------------
+// Object is a collection of Key value Pair seperated by :
 
 // let person = {
 //   name: "utkarsh",
@@ -298,6 +299,7 @@
 // Travelling has 2 Phases
 // 1. Parsing phase - Only  Function DECLARATION and Variable DECLARATION.
 // 2. Execution phase - Everything except in Parsing phase.
+// 3. By default COde is being Parsed in GLOBAL EXECUTION CONTEXT (GEC)
 
 // --------------------- Hoisting -----------------
 
@@ -324,7 +326,7 @@
 
 // Exmple 1
 
-// console.log(a);
+// console.log(a, "debug");
 // var a = 12;
 
 // console.log(a);
@@ -334,6 +336,104 @@
 // var a;
 // a = 9;
 // console.log(a);
+
+// Example 3:
+
+// sum();
+// function sum() {
+//   console.log(10);
+//   return 10;
+// }
+
+// Note: LET and COnst are also Hoisted but in a special known as Temporal_deadzone.
+// Temporal_deadzone dont allow to read variables By "EYE" if the property is Undefined.
+
+// console.log(a);
+// let a = 12;
+
+//  -------------------- Basic Maths (assignment, operator) ----------
+
+// console.log(1 + 2); // 3
+// console.log(10 % 2); // 0
+
+// console.log(Math.pow(2, 3)); // 8
+
+// --------------- Comparisons ------------------------
+// >, <, <=, >=, ==, !=, ===, !==,
+
+// console.log(10 > 2); // true
+// console.log(10 < 2); // false
+
+// console.log(10 == 2); // false
+// console.log(10 == 10); // true
+
+// console.log("10" == 10); // true, why is this weird ????
+// console.log("10" === 10); // false
+
+// === is doing 2 things
+// 1. checking the value //yes
+// 2. checking the type // no
+
+/*
+
+    Basic Programming
+
+*/
+
+if (true) {
+  // do soemthing
+} else {
+  // do something
+}
+
+//  --- Loops ->
+
+// let arr = [1, 2, 3, 4, 5];
+
+// for (let i = 0; i < arr.length; i++) {
+//   const element = arr[i];
+//   console.log(element);
+// }
+
+// let j = 0;
+
+// while (j < arr.length) {
+//   console.log(arr[j]);
+//   j++;
+// }
+
+// for in -> loops over object and its properties.
+// for of -> arrays and (Iterable Objects) -> array is a default iterable Object.
+
+// for (const item of arr) {
+//   console.log(item, "for of");
+// }
+
+// let obj = {
+//   name: "ut",
+//   age: 50,
+//   canDrive: false,
+// };
+
+// for (const key in obj) {
+//   const value = obj[key];
+//   console.log(key);
+//   console.log(value);
+// }
+
+// ------ Switch
+
+// switch(condition) {
+//     case 10:
+//     case 1:
+//         console.log("1");
+//         break;
+//     case 2:
+//         console.log("2");
+//         break;
+//     default:
+//         console.log("default value -1");
+// }
 
 //  ----------------------- Scoping (Scope) ---------------------
 
