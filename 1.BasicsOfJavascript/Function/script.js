@@ -117,10 +117,10 @@ console.log("functions");
 // name, standard, rollNumber
 // restOfthe THings -> father name , mothername, address
 
-// function child(name, standard, rollnumber, ...asdasdasd) {
+// function child(name, standard, rollnumber, ...otherTHings) {
 //   console.log(name, standard, rollnumber, "importnant information"); // store in good place
 
-//   console.log(asdasdasd);
+//   console.log(otherTHings);
 // }
 
 // // animesh child
@@ -200,3 +200,5 @@ console.log("functions");
 // console.log(arr); // [1,2,3,4,5]
 // console.log(arrCopy); // [1,2,3,4,5]
 // console.log(arrCopy == arr); // false
+
+// -------------- Deep copy and SHALLOW copy -----
