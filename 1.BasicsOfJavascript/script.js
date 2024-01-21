@@ -434,27 +434,3 @@ if (true) {
 //     default:
 //         console.log("default value -1");
 // }
-
-//  ----------------------- Scoping (Scope) ---------------------
-
-// 1. the Js File is a Global iteself.
-// 2. Scope of Var => global And Functional
-
-// Example 1 ->
-// var a = 12; // Scope of a is Global
-// console.log(a); // 12
-
-// if (true) {
-//   console.log(a, "inside of the if block"); // 12
-// }
-
-// console.log(a);
-
-// Example 2 ->
-
-// if (true) {
-//   var a = 100;
-//   console.log(a, "answer 1");
-// }
-
-// console.log(a, "ans 2");
