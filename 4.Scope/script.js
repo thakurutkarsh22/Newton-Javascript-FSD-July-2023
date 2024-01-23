@@ -92,3 +92,71 @@
 // }
 
 // console.log(a);
+
+// Example 7 ->
+
+// var a = 12;
+// console.log(a);
+
+// function abc() {
+//   var a = 99;
+//   var b = 100;
+//   console.log(a);
+//   console.log(b);
+// }
+
+// abc();
+
+// console.log(a);
+
+// Example - 8 >
+
+// TODO: utkarsh
+
+// var x = 1;
+
+// function outer() {
+//   console.log(x);
+
+//   var x = 2;
+
+//   function inner() {
+//     console.log(x);
+//   }
+
+//   inner();
+// }
+
+// outer();
+
+// Conclusion of Var Scope -> It is EXECUtiON CONTEXT
+
+//  -------------  Let And Const ---------- --
+
+// let and const have a scope of block.
+// block means = {}
+
+// Example 1 ->
+
+// let a = 100;
+
+// if (true) {
+//   let a = 99;
+//   console.log(a);
+// }
+
+// console.log(a);
+
+// Example 2 ->
+// for loop.....
+
+// let a = 100;
+// console.log(a);
+
+// for (let a = 1; a < 3; a++) {
+//   console.log(a);
+// }
+
+// console.log(a);
+
+// TODO: utkarsh do settimeout question here.......
