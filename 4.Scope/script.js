@@ -113,21 +113,24 @@
 
 // TODO: utkarsh
 
-// var x = 1;
+var x = 1;
 
-// function outer() {
-//   console.log(x);
+function outer() {
+  console.log(x);
 
-//   var x = 2;
+  var x = 2;
 
-//   function inner() {
-//     console.log(x);
-//   }
+  function inner() {
+    console.log(x);
+  }
 
-//   inner();
-// }
+  inner();
+}
 
-// outer();
+outer();
+
+// Undefined
+// 2
 
 // Conclusion of Var Scope -> It is EXECUtiON CONTEXT
 

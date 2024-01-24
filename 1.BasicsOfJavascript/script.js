@@ -402,8 +402,11 @@ if (true) {
 //   j++;
 // }
 
-// for in -> loops over object and its properties.
-// for of -> arrays and (Iterable Objects) -> array is a default iterable Object.
+// for in -> loops over object and its properties. ( keys ) -> will work with both Arrays and Obj
+// for of -> arrays and (Iterable Objects ONLY) -> array is a default iterable Object. (values)
+
+// questioin:  How to find iterable Objects
+// answer: go to prototype of that perticular object and find Symbol.iterator. if found it is an interable Object.
 
 // for (const item of arr) {
 //   console.log(item, "for of");
@@ -420,6 +423,21 @@ if (true) {
 //   console.log(key);
 //   console.log(value);
 // }
+
+// What if ? I use For in for arrays.
+
+// const arr = [99, 86, 45, 90, 100];
+// // values
+
+// for (let item of arr) {
+//   console.log(item);
+// } // 99, 86,45, 90,100
+
+// for (let item in arr) {
+//   console.log(item);
+// } // 0,1,2,3,4
+
+// what if ? I use For Of for arrays....
 
 // ------ Switch
 
