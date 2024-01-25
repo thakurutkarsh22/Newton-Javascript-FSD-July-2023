@@ -148,15 +148,166 @@
 // console.log(resutnAnswer);
 
 // function outer() {
-//   //   const inner = function () {
-//   //     console.log("hey I am from innter functoin");
-//   //   };
+//     const inner = function () {
+//       console.log("hey I am from innter functoin");
+//     };
+//     // const inner = () => {}
 
-//   function inner() {
-//     console.log("hey I am from innter functoin");
-//   }
+// //   function inner() {
+// //     console.log("hey I am from innter functoin");
+// //   }
 
 //   return inner;
 // }
 
 // console.log(outer());
+
+// ---------- Higher Order FUnction --------------
+
+// 1. a function who accepts another Function
+
+// greeting function is a Higher order Function.
+// function greeting(fn) {}
+
+// greeting(() => {
+//   console.log("hello");
+// });
+
+// 2. a function who returns a function from its body
+
+// this outer function is also a Higher order fnction
+// function outer() {
+//   function inner() {}
+
+//   return inner;
+// }
+
+// outer();
+
+// 3 these 2 above rules combined will also make a function a HOF
+
+// outer is a HOF
+// function outer(fn) {
+//   return fn;
+// }
+
+// -------- practical Things OF HOF
+
+// function add(x, y) {
+//   return x + y;
+// }
+
+// function diff(x, y) {
+//   return x - y;
+// }
+
+// function mult(x, y) {
+//   return x * y;
+// }
+
+// console.log(add(3, 4)); // 7
+// console.log(diff(3, 4)); // -1
+// console.log(mult(3, 4)); // 12
+
+// Count  of Pure FUnctions - > 3
+// count of Impure functions -> 0
+
+// Question: Now the requirement is that any action that you do NEEDS TO BE LOGGED : WITH  "DEBUG" MESSAGE
+
+// Answer
+
+// function add(x, y) {
+//   // logger with debug message google.log()
+
+//   console.log(`%c add ${x}, ${y} DEBUG`, "color:red;");
+
+//   return x + y;
+// }
+
+// function diff(x, y) {
+//   // logger with debug message
+//   console.log(`%c diff ${x}, ${y} DEBUG`, "color:red;");
+//   return x - y;
+// }
+
+// function mult(x, y) {
+//   // logger with debug message
+//   console.log(`%c mult ${x}, ${y} DEBUG`, "color:red;");
+//   return x * y;
+// }
+
+// // count of Impure functions -> 3
+// // count of Pure Functions -> 0
+
+// const addAnswer = add(3, 4); // 7
+// const diffAnswer = diff(3, 4); // -1
+// const multAnswer = mult(3, 4); // 12
+
+// console.log(addAnswer, diffAnswer, multAnswer);
+
+// -- Better ANswer
+
+// function add(x, y) {
+//   return x + y;
+// }
+
+// function diff(x, y) {
+//   return x - y;
+// }
+
+// function mult(x, y) {
+//   return x * y;
+// }
+
+// loggingFunction is taking a function as Parameter so it is a HOF
+// loggingFunction is impure function..
+// function loggingFunction(fn, x, y) {
+//   console.log(`%c  ${x}, ${y} DEBUG`, "color:red;");
+//   return fn(x, y);
+// }
+
+// Count of Pure function -> 3
+// Count of Impure Functions -> 1
+
+// const addAnswer2 = loggingFunction(add, 3, 4);
+// const diffAnswer2 = loggingFunction(diff, 3, 4);
+// const multAnswer2 = loggingFunction(mult, 3, 4);
+// console.log(addAnswer2, diffAnswer2, multAnswer2, "version HOF");
+
+// const addAnswer = add(3, 4); // 7
+// const diffAnswer = diff(3, 4); // -1
+// const multAnswer = mult(3, 4); // 12
+
+// console.log(addAnswer, diffAnswer, multAnswer, "version Normal");
+
+// -------------------- Callback Function -------------------
+/*
+    A callback is a function that is passed as an argument to another function, and is 
+    called after the main function has finished its execution.
+*/
+
+// 1. has the responsibility to say hello..
+// 2. greeting will take a function so that, it can say hello in different language
+
+// Greeting is a HOF - Higher order FUnction
+function greeting(fn) {
+  // this fn is a normal function it has a special name CALLBACK FUNCTION
+  // fn is a callback Function
+  fn();
+}
+
+const letsss = function () {};
+
+const lsssssss = () => {};
+
+const utkrshHelloCallbackFuncton = function () {
+  console.log("hello in hindi");
+};
+
+greeting(utkrshHelloCallbackFuncton);
+
+const utkarsh = greeting(() => {
+  console.log("hello in hindi");
+});
+
+// the inside function or utkrshHelloFuncton is known as CALLBACK FUNCTIONS

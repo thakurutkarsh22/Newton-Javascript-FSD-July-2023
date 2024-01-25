@@ -187,3 +187,46 @@ console.log("functions");
 // console.log(sum(math, science)); // 130
 
 // console.log(sum(math.marks, science.marks)); // 100 90
+
+// ---------------- Pure function vs Impure functions -------------
+
+// Pure function
+
+// let z = 1;
+// console.log(z, "add before");
+// function add(x, y) {
+//   return x + y;
+// }
+
+// // for every same input you will get same output..
+// add(1, 2); // 3
+// console.log(z, "after add");
+
+// add(1,2) // 3
+// add(1,2)
+// add(1,2)
+// add(1,2)
+// add(1,2)
+
+// is this function doing things that it is bound to do? Yes it is doing addition and returning the result
+// is this function doing some Extra things also apart from its work ?  NO
+
+// console.log(z, "original z"); //
+
+// // // This is an example of Impure function
+// function mult(x, y) {
+//   z = 100; // this is a side Effect
+//   //   console.log(z); // this is also a side Effect
+
+//   // logging service -> google.log() // this is also a side effect
+//   return x * y;
+// }
+
+// console.log(mult(1, 3)); // 3
+
+// console.log(z, "value of z");
+
+// is this function doing things that it is bound to do ? YES it is doing multiplication and returning the result
+// is this function doing some Extra things also apart from its work ? YES
+
+// extra is I am Going outside the bound of brackets and changing something or aceesing other things.
