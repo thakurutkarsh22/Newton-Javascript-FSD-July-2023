@@ -452,3 +452,16 @@ if (true) {
 //     default:
 //         console.log("default value -1");
 // }
+
+// ------------------- Advance things of variable ---------
+
+// 1. you can define Variable as 3 ways
+// let const and var
+
+// let b = 9;
+// const d = 12
+// var x = 12;
+
+// a = 12; // -> will ALways be declaared in GEC (dosent matter where this a is defined)
+
+// console.log(a, x); // undefined, 1
