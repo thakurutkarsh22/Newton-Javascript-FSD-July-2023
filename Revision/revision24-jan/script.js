@@ -97,3 +97,63 @@ abc();
 // abc( () => {}  ,3) // 1,3 are Arguments
 
 // callback function -> its a function only but in Arguments.
+
+// --------------- Doubts -------------------
+
+// Q1
+let a = 10,
+  b = 10,
+  c = 10;
+
+if ((a == b) == c) {
+  console.log("hello");
+} else {
+  console.log("bye");
+}
+
+// Q2
+// TODO:
+const fun = () => {
+  let a = (b = 0);
+
+  a++;
+
+  return a;
+};
+
+fun();
+
+console.log(typeof a);
+
+console.log(typeof b);
+
+// Q3
+let x = [1, 2, 3]; // abc@123
+
+let y = [1, 2, 3]; // abc@124
+
+let z = y; //  abc@124
+
+console.log(x == y); // false
+
+console.log(x === y); // false
+
+console.log(z == y); // true
+
+console.log(z == x); // false
+
+// Q4
+
+let num = 0;
+
+function test() {
+  var num = 1;
+
+  return num;
+}
+
+console.log(test());
+
+console.log(num);
+
+// 1 0
