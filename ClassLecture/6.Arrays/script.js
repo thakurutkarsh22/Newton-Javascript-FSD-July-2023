@@ -335,3 +335,28 @@
 // });
 
 // console.log(answer, "reduce answer");
+
+// 8. Concat
+
+// const array1 = ["a", "b", "c"];
+// const array2 = ["d", "e", "f"];
+// const array3 = array1.concat(array2);
+
+// console.log(array3);
+// Expected output: Array ["a", "b", "c", "d", "e", "f"]
+
+// 9. ---------  toString() Method ------
+// const obj = {
+//   name: "utkars",
+//   class: 9,
+// };
+
+// const answer = obj.toString();
+// console.log(answer); // '[object Object]'
+
+// console.log(JSON.stringify(obj)); // '{name: "utkars"class: 9,}'
+
+// let arr = [1, 2, 3, 4, 5];
+
+// console.log(arr.toString()); // "1,2,3,4,5";
+// console.log(JSON.stringify(arr)); // "[1,2,3,4,5]";
