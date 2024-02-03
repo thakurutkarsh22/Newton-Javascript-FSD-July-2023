@@ -402,8 +402,8 @@ if (true) {
 //   j++;
 // }
 
-// for in -> loops over object and its properties. ( keys ) -> will work with both Arrays and Obj
-// for of -> arrays and (Iterable Objects ONLY) -> array is a default iterable Object. (values)
+// for in -> loops over object and its properties. (Object keys ) -> will work with both Arrays and Obj
+// for of -> arrays and (Iterable Objects ONLY) -> array is a default iterable . (values)
 
 // questioin:  How to find iterable Objects
 // answer: go to prototype of that perticular object and find Symbol.iterator. if found it is an interable Object.

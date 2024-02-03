@@ -360,3 +360,11 @@
 
 // console.log(arr.toString()); // "1,2,3,4,5";
 // console.log(JSON.stringify(arr)); // "[1,2,3,4,5]";
+
+//  ----------------- JOIN -----------
+
+// const arr = ["aero", "plane"];
+
+// arr.join(); // //aero,plane
+// arr.join(""); // //aeroplane
+// arr.join(" "); // //aero plane
