@@ -290,24 +290,39 @@
 // 2. greeting will take a function so that, it can say hello in different language
 
 // Greeting is a HOF - Higher order FUnction
-function greeting(fn) {
-  // this fn is a normal function it has a special name CALLBACK FUNCTION
-  // fn is a callback Function
-  fn();
-}
+// function greeting(fn) {
+//   // this fn is a normal function it has a special name CALLBACK FUNCTION
+//   // fn is a callback Function
+//   fn();
+// }
 
-const letsss = function () {};
+// const letsss = function () {};
 
-const lsssssss = () => {};
+// const lsssssss = () => {};
 
-const utkrshHelloCallbackFuncton = function () {
-  console.log("hello in hindi");
-};
+// const utkrshHelloCallbackFuncton = function () {
+//   console.log("hello in hindi");
+// };
 
-greeting(utkrshHelloCallbackFuncton);
+// greeting(utkrshHelloCallbackFuncton);
 
-const utkarsh = greeting(() => {
-  console.log("hello in hindi");
-});
+// const utkarsh = greeting(() => {
+//   console.log("hello in hindi");
+// });
 
 // the inside function or utkrshHelloFuncton is known as CALLBACK FUNCTIONS
+
+//  ------------------- DEFAULT PARMATERS IN JAVASCRIPT FUNCTION ---------------
+
+// if in ARGUMENTS we do dot provide the value of PARAMETER then a PARAMETER can TAKE DEFAULT_VALUE....
+
+// default value of a = 9 and for b = 100
+
+// function sum(a = 9, b = 100) {
+//   return a + b;
+// }
+
+// const result = sum(10); // 110
+// const result2 = sum(undefined, 10); // 19
+// const result3 = sum(); // 109
+// console.log(result3);
