@@ -133,6 +133,71 @@ const childElement = document.getElementById("child");
 //   false
 // );
 
+//  ---------------------------- Event StopPropogation -------------
+
+// 1. ------ Capturing phase
+
+// childElement.addEventListener(
+//   "click",
+//   (eventObj) => {
+//     // console.log(JSON.parse(JSON.stringify(eventObj))); // target => key is not present we can say target -> null
+
+//     console.log("child clicked!!");
+//   },
+//   true
+// );
+
+// grandParentElement.addEventListener(
+//   "click",
+//   (eventObj) => {
+//     // console.log(eventObj); // target => Null.
+//     console.log("grandparent hello");
+//     eventObj.stopPropagation(); // wall
+//   },
+//   true
+// );
+
+// parentElement.addEventListener(
+//   "click",
+//   (eventObj) => {
+//     // console.log(eventObj); // target => Null.
+//     console.log("parent hello parent elem");
+//   },
+//   true
+// );
+
+// 2. ----  Bubbling phase
+
+// childElement.addEventListener("click", (eventObj) => {
+//   console.log("child CLicked");
+//   eventObj.stopPropagation();
+// });
+
+// grandParentElement.addEventListener("click", () => {
+//   console.log("grandparent hello");
+// });
+
+// parentElement.addEventListener("click", (eventObj) => {
+//   // console.log(eventObj); // target => SomeElement
+//   console.log("parent clicked !!!");
+//   // eventObj.stopPropagation(); // wall
+// });
+
 //  -------------------------- REMOVE EVENT-LISTNER --------------
 
 //  EVENT DELEGATION ...
+
+const buttonElement = document.getElementById("button");
+
+const callBack = () => {
+  console.log("click me");
+};
+buttonElement.addEventListener("click", callBack);
+
+// Faking things
+// after 5 seconds remove this Event listner from buttonElement
+// 5000 - milliseconds -> 5sec
+
+setTimeout(() => {
+  buttonElement.removeEventListener("click", callBack);
+}, 5000);
