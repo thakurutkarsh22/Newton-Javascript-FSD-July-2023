@@ -19,7 +19,7 @@
 
 // console.log(abc()) //
 
-// example 2 ->
+// ----------- example 2 --------->
 
 // let a = 10;
 
@@ -49,6 +49,7 @@
 let count = 0;
 
 function counter() {
+  // counter + env { count = 0 }
   count++;
   return count;
 }
