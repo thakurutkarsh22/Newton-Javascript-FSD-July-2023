@@ -82,45 +82,47 @@
 // ANy PROPERTIES of child CAN NEVER BE part of Parent Object.
 
 // parent class
-// class Student {
-//   name;
-//   standard;
+class Student {
+  name;
+  standard;
 
-//   constructor(name, standard) {
-//     this.name = name;
-//     this.standard = standard;
-//   }
+  constructor(name, standard) {
+    this.name = name;
+    this.standard = standard;
+  }
 
-//   markAttendance() {
-//     console.log(`hey there ${this.name} is present: Normal classroom attance`);
-//   }
+  markAttendance() {
+    console.log(`hey there ${this.name} is present: Normal classroom attance`);
+  }
 
-//   grades() {
-//     console.log("grades nice");
-//   }
-// }
+  grades() {
+    console.log("grades nice");
+  }
+}
 
 // super // -> parent
 
 // child class -> derived class.
-// class SportCaptain extends Student {
-//   favTool; // Bat, ball, badmintion, tennis racket
+class SportCaptain extends Student {
+  favTool; // Bat, ball, badmintion, tennis racket
 
-//   constructor(name, stand, favTool) {
-//     super(name, stand); // I am calling Constructor of parent
-//     this.favTool = favTool;
-//   }
+  constructor(name, stand, favTool) {
+    super(name, stand); // I am calling Constructor of parent
+    this.favTool = favTool;
+  }
 
-//   // markAttendance() {
-//   //   console.log(`sports captain ${this.name} is present in the ground`);
-//   // }
+  // Method overriding ...
+  // child markAttendance method will OVERIDE THE Parent markAttendance
+  markAttendance() {
+    console.log(`sports captain ${this.name} is present in the ground`);
+  }
 
-//   routine() {
-//     console.log("play cricket all day and do not study");
+  routine() {
+    console.log("play cricket all day and do not study");
 
-//     super.grades(); // -> this can be done
-//   }
-// }
+    super.grades(); // -> this can be done
+  }
+}
 
 // const akash = new Student("akash", 5);
 // const ankush = new Student("ankush", 10);
@@ -128,8 +130,8 @@
 // console.log(akash);
 // console.log(ankush);
 
-// const virat = new SportCaptain("virat", 11, "bat");
-
+const virat = new SportCaptain("virat", 11, "bat");
+virat.markAttendance();
 // console.log(virat);
 
 /*
@@ -141,11 +143,12 @@
 */
 
 // ----------------- Inheritance BEFORE ES6 (through CONSTRUCTOR FUNCTION) --------------
+// in advance module we have discussed.
 
 //  ------------------------ Getters and Setters ----------------
 
 // class Star {
-//   name;
+//   name; // properties ....
 
 //   // DEFAULT CONSTRUCTOR...
 //   constructor() {}
@@ -199,51 +202,98 @@ sun.years = -100;
 // }
 // way 2
 
-class Star {
-  #weight; // private properties
-  #years;
+// class Star {
+//   #weight; // private properties
+//   #years;
 
-  name; // public
+//   name; // public
 
-  constructor(name, weight, year) {
-    this.name = name;
-    this.#weight = weight;
-    this.#years = year;
-  }
+//   constructor(name, weight, year) {
+//     this.name = name;
+//     this.#weight = weight;
+//     this.#years = year;
+//   }
 
-  set setWeight(value) {
-    // if you are dev
-    this.#weight = value;
-  }
+//   set setName(value) {
+//     this.name = value;
+//   }
 
-  set setYears(value) {
-    this.#years = value;
-  }
+//   set setWeight(value) {
+//     // if you are dev
 
-  get getWeight() {
-    return this.#weight;
-  }
+//     if (value < 0) {
+//       return;
+//     }
 
-  get getYears() {
-    return this.#years;
-  }
-}
+//     this.#weight = value;
+//   }
 
-const sun = new Star("sun", 10010101020301, 900000000);
-console.log(sun);
+//   set setYears(value) {
+//     this.#years = value;
+//   }
+
+//   get getWeight() {
+//     return this.#weight;
+//   }
+
+//   get getYears() {
+//     return this.#years;
+//   }
+// }
+
+// const sun = new Star("sun", 10010101020301, 900000000);
+// console.log(sun);
 
 // can someone else change this value
 
 //  This thing is not possible now  ...
-// sun.#weight = 12000 ;
+// sun.#weight = 12000;
 
-sun.setWeight = 1200;
+// sun.setWeight = 1;
 
-sun.name = "utkarsh sun";
+// sun.name = "utkarsh sun";
 
-console.log(sun.name, "name"); // you can get NON PRIVATE VALUES LIKE THIS.
+// console.log(sun.name, "name"); // you can get NON PRIVATE VALUES LIKE THIS.
 // console.log(sun.#weight); // YOU CANT GET PRIVATE VALUES LIKE THIS ...
 // console.log(sun.#years);
 
-console.log(sun.getWeight, "weight"); // 10010101020301
-console.log(sun.getYears, "years"); // 900000000
+// console.log(sun.getWeight, "weight"); // 10010101020301
+// console.log(sun.getYears, "years"); // 900000000
+
+// ------------------------------ Instance VS STATIC Properties/METHODS  ----------------------
+
+// class Circle {
+//   radius;
+
+//   constructor(radius) {
+//     this.radius = radius;
+//   }
+
+//   // normal method
+//   draw() {
+//     console.log("DRAW");
+//   }
+
+//   // static METHOD
+//   static parse() {
+//     console.log("static parse");
+//   }
+// }
+
+// circle variable is INSTANCE of Circle class
+
+// Circle.draw(); // can I do this ?
+
+// const circle = new Circle(10); //
+// console.log(circle);
+// circle.draw();
+
+// Circle.parse();
+
+// SOmething like below is not possible.
+
+// Circle.draw();
+// console.log(Circle.radius);
+
+//  ----------- CHECK INSTANCEOF WHICH CLASS -----------
+// console.log(circle instanceof Circle);
