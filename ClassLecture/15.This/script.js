@@ -298,20 +298,112 @@
 
 // obj2.func.call(obj2);
 
-let obj = {
-  name: "akash",
+// let obj = {
+//   name: "akash",
 
+//   func: function () {
+//     // context -> this -> obj
+//     const inner = () => {
+//       // this -> parent's this, and the parent is func (function).
+//       console.log(`hellooo ${this.name}`); // akash
+//     };
+
+//     console.log(`inner function ${this.name}`); // akash
+
+//     inner(); //
+//   },
+// };
+
+// obj.func();
+
+// --------- Interview Questions --------------
+
+// question :
+
+/*
+const obj = {
+  name: "utkrsh",
   func: function () {
-    // context -> this -> obj
-    const inner = () => {
-      // this -> parent's this, and the parent is func (function).
-      console.log(`hellooo ${this.name}`); // akash
-    };
-
-    console.log(`inner function ${this.name}`); // akash
-
-    inner(); //
+    this.standard = "12";
+    console.log(`hello ${this.name}`);
   },
 };
 
-obj.func();
+const objjj = new obj.func();
+
+console.log(objjj);
+
+/*
+
+// answer:
+
+/*
+at line 332 (const objjj = new obj.func();)
+  this is a fight Between new Keyword RULE and Inplicit binding Rule 
+  and New keyword wins 
+*/
+
+/* hello undefined
+    {
+      standard: 12
+    }
+*/
+
+// Explanation
+
+// const obj = {
+//   name: "hello",
+//   func: function (name, age) {
+//     this.name = name;
+//     this.age = age;
+//   },
+// };
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+
+//   return 1;
+
+//   return 1000;
+// }
+
+// // const ans = Person("ankit", 12);
+// // console.log(ans, "ans");
+
+// const utkasrh = new Person("utkarsh", 27);
+// const vikash = new obj.func("vikash", 16);
+
+// console.log(utkasrh);
+// console.log(vikash);
+
+// question
+
+/*
+const obj = {
+  name: "utkrsh",
+  func: function () {
+    this.standard = "12";
+    this.name = "anukush"
+    console.log(`hello ${this.name}`);
+  },
+};
+
+const objjj = new obj.func();
+
+console.log(objjj);
+
+*/
+
+// answer
+
+/*
+
+hello anukush
+
+{
+    "standard": "12",
+    "name": "anukush"
+}
+
+*/
