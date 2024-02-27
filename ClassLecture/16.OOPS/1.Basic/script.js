@@ -194,7 +194,7 @@ sun.years = -100;
 
 // we can get private properties like this
 
-// way 1
+// way 1: this is not as efffective as #
 
 // class Star {
 //   _weight;
