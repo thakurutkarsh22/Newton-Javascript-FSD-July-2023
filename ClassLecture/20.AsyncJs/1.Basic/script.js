@@ -221,3 +221,98 @@ setTimeout(() => {
 console.log("a");
 
 // answer: a 12
+
+// Question 11:
+
+console.log("a");
+
+setTimeout(() => {
+  console.log("c");
+}, 3000);
+setTimeout(() => {
+  console.log("d");
+}, 1000);
+setTimeout(() => {
+  console.log("e");
+}, 2000);
+
+console.log("b");
+
+// answer: a b d e c.
+
+// Question 12:
+
+console.log("a");
+
+setTimeout(() => {
+  console.log("c");
+}, 2000);
+setTimeout(() => {
+  console.log("d");
+}, 1000);
+setTimeout(() => {
+  console.log("e");
+}, 2000);
+
+console.log("b");
+
+// Answer:  a b d c e
+
+// ---------------------------- Interval -------------------
+
+console.log("a");
+
+const idInterval = setInterval(() => {
+  console.log("hello");
+}, 2000);
+
+// clearInterval(idInterval);
+
+console.log("b");
+
+// a b hello, hello, hello, hello ............ inifinite responses
+
+// if you want to stop use clearInterval(idInterval)
+
+// Question 13:
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+// 0  1 2 3 4
+
+for (var j = 0; j < 5; j++) {
+  console.log(j);
+}
+// 0  1 2 3 4
+
+for (let i = 0; i < 5; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 4000);
+}
+
+// wait 0 wait 1 wait 2 wait 3 wait 4 wait  /// THIS IS WRONG OUTPUT
+
+// wait 0 1 2 3 4 -> // THIS IS CORRECT OUTPUT.
+
+for (var j = 0; j < 5; j++) {
+  setTimeout(() => {
+    console.log(j);
+  }, 1000);
+}
+
+// 55555
+
+// Question 14: How to fix this.. ? DO NOT SAY LET AND CONST KEYWORD.
+
+// TODO: Some student will do this. I will not.
+// HINT: IIFE...
+
+for (var j = 0; j < 5; j++) {
+  setTimeout(() => {
+    console.log(j);
+  }, 1000);
+}
+
+// answer ..
