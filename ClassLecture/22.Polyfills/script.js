@@ -57,6 +57,7 @@ const doubleArray = arr.map((item, index, array) => item * 2);
 
 //2.  My Filter
 
+/*
 const filterdArray = arrayarr.filter((item) => item > 4); // [5,6,7,8,9]
 
 console.log(filterdArray, arrayarr, "NORMAL FILTER FUNCTION ");
@@ -88,3 +89,86 @@ const myFilteredArr = arrayarr.MyFilter((item) => {
 }); // [5,6,7,8,9]
 
 console.log(arrayarr, myFilteredArr, "my filter");
+*/
+
+// ----------------------------- Debouncing -------------------------\\
+
+// ----- unoptimized Solution
+
+const inputBoxElement = document.getElementById("inputBox");
+
+function fetchSuggestions(event) {
+  const value = event.target.value;
+
+  fetch("google.com", {
+    method: "POST",
+    body: JSON.stringify(value),
+  });
+
+  console.log(value);
+}
+
+// inputBoxElement.addEventListener("input", fetchSuggestions);
+// inputBoxElement.addEventListener("input", (event) => {});
+
+// Optimized solution
+
+// lets create a debouncing function
+
+// callBackFunction = fetchSuggestions;
+
+/*
+function debounce(callBackFunction, delay) {
+  let timerNumber;
+
+  function outputFunction(event) {
+    // clear the old timer (AbC)
+    clearTimeout(timerNumber);
+
+    // set the new timer  (ABCD)
+    timerNumber = setTimeout(() => {
+      callBackFunction(event);
+    }, delay);
+  }
+
+  return outputFunction;
+}
+
+const betterFetchSuggestions = debounce(fetchSuggestions, 2000);
+
+inputBoxElement.addEventListener("input", betterFetchSuggestions);
+
+*/
+
+// 2 things we understood by this
+// debounce function takes 2 parameters inside it (fn, time)
+// returns a function itself.
+
+// ---------- THROTTLING --------------
+
+function fireBullet(event) {
+  console.log("FIRE");
+}
+
+// inputBoxElement.addEventListener("input", fireBullet);
+
+function throttling(callback, delay) {
+  let flag = true;
+
+  function outputFunction(eventObject) {
+    if (flag) {
+      callback(eventObject); // fire function
+      flag = false;
+
+      setTimeout(() => {
+        flag = true;
+      }, delay);
+    }
+  }
+
+  return outputFunction;
+}
+
+const throttledFireBullet = throttling(fireBullet, 1000);
+
+inputBoxElement.addEventListener("input", throttledFireBullet);
