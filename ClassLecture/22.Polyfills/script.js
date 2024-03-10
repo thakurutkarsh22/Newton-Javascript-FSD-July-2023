@@ -91,6 +91,137 @@ const myFilteredArr = arrayarr.MyFilter((item) => {
 console.log(arrayarr, myFilteredArr, "my filter");
 */
 
+// 3. Push (you can mek for POP, shift and Unshift)
+
+/*
+function myPush(value) {
+  // context -> this -> arr
+
+  const array = this;
+
+  const n = array.length;
+
+  array.splice(n, 0, value);
+
+  return array.length;
+}
+
+Array.prototype.myPush = myPush;
+
+const arr = [1, 2, 3, 4, 5];
+
+const updatedLength = arr.myPush(16); // call site
+arr.myPush(70);
+
+console.log(updatedLength);
+console.log(arr, "updated arrays");
+
+*/
+
+// 4. Reduce.
+
+// EXAMPLE 1:
+// let arr = [1, 2, 3, 4, 5];
+
+// let count = arr.reduce((prev, currentValu) => {
+//   return prev + currentValu;
+// }, 100);
+
+// let count = arr.reduce((prev, currentValu) => {
+//   return prev + currentValu;
+// });
+
+/*
+
+function myReduce(callbackFunction, initialValue = 0) {
+  const array = this;
+
+  let prevValue = initialValue;
+  for (let i = 0; i < array.length; i++) {
+    const currentValue = array[i];
+    let returnVal = callbackFunction(prevValue, currentValue);
+
+    prevValue = returnVal;
+  }
+
+  return prevValue;
+}
+
+Array.prototype.myReduce = myReduce;
+
+let count2 = arr.myReduce((prev, currentValu) => {
+  return prev + currentValu;
+}, 100);
+
+console.log(count, "count ");
+console.log(count2, "count 2");
+
+*/
+
+// EXAMPLE 2:
+
+const students = [
+  { name: "utkarsh", marks: 400 },
+  { name: "arun", marks: 480 },
+  { name: "ankit", marks: 200 },
+];
+
+// Question get the total marks of the student with reduce function
+// 1080
+
+// const totalMarks = students.reduce((prev, current) => {
+//   return prev + current.marks;
+// }, 0);
+
+const totalMarks = students.reduce((prev, current) => {
+  return prev + current.marks;
+});
+
+console.log(totalMarks, "total marks"); // {total: 500}
+
+// FINAL MY REDUCE FUNCTION: PLEASE SEE THIS........
+
+function myReduce(callbackFunction, initialValue) {
+  const array = this;
+
+  let prevValue;
+  let i = 0;
+
+  if (initialValue !== undefined) {
+    prevValue = initialValue;
+  } else {
+    prevValue = array[0];
+    i++;
+  }
+
+  for (i; i < array.length; i++) {
+    const currentValue = array[i];
+    let returnVal = callbackFunction(prevValue, currentValue);
+
+    prevValue = returnVal;
+  }
+
+  return prevValue;
+}
+
+Array.prototype.myReduce = myReduce;
+
+const totalMarks2 = students.myReduce((prev, current) => {
+  return prev + current.marks;
+}, 0);
+
+console.log(totalMarks2, "total marks 2"); // {total: 500}
+
+const total1 = [1, 2, 3].myReduce((prev, current) => {
+  return prev + current;
+});
+const total2 = [1, 2, 3].myReduce((prev, current) => {
+  return prev + current;
+}, 0);
+
+console.log("totoal 222222", total2);
+console.log("totoal 111111 ", total1);
+
 // ----------------------------- Debouncing -------------------------\\
 
 // ----- unoptimized Solution
@@ -152,6 +283,7 @@ function fireBullet(event) {
 
 // inputBoxElement.addEventListener("input", fireBullet);
 
+/*
 function throttling(callback, delay) {
   let flag = true;
 
@@ -172,3 +304,5 @@ function throttling(callback, delay) {
 const throttledFireBullet = throttling(fireBullet, 1000);
 
 inputBoxElement.addEventListener("input", throttledFireBullet);
+
+*/
