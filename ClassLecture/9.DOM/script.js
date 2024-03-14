@@ -286,3 +286,20 @@ const namesListElement = document.getElementById("names");
 // console.log(namesListElement.innerHTML, "inner html view");
 
 // namesListElement.innerHTML += `<li>utkarsh100</li>\n`;
+
+// WHY DATASET is used
+/*
+    So that from HTML we can pass anything (abra katabara key also) 
+    to my JS.
+
+*/
+
+/*
+const utkarshMarksElement = document.getElementById("utkarshMarksHeading");
+console.dir(utkarshMarksElement);
+
+const marks = utkarshMarksElement.dataset.utkarshMarks;
+const abraKatabra = utkarshMarksElement.dataset.abraKatabara;
+console.log(marks, abraKatabra);
+
+*/
