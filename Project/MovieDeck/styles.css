@@ -85,7 +85,7 @@ header > nav > a {
 .tab {
   width: 150px;
   height: 32px;
-  border: none;
+  /* border: none; */
   border-radius: 8px;
   cursor: pointer;
 }
@@ -102,6 +102,34 @@ header > nav > a {
 }
 
 /* Card Layout */
+
+.card {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.votes-favorites {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.movie-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.poster {
+  width: 200px;
+  height: 300px;
+
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/*  XXXXXXXXX------- card layouting end  */
 
 #pagination {
   display: flex;
