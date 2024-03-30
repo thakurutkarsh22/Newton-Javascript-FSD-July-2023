@@ -1,8 +1,9 @@
 // JS ->
 
 let currentPage = 1;
+let MOVIE_LIST = [];
 
-// Selectos
+// ------------  Selectos -----------
 
 const movieListContainer = document.getElementById("movie-list");
 
@@ -25,7 +26,7 @@ const pageNumberButtonElement = document.getElementById("page-number-button");
 
 //  ----- - - - - - - - - - -
 
-// 1. FETCH THE DATA
+// 1. FETCH THE DATA (IDEALLY USED GRAPH QL || FOR US we are getting all the data and then we are remapping it.)
 
 function remapData(movieList = []) {
   const modifiedList = movieList.map((movieObj) => {
@@ -54,27 +55,62 @@ async function fetchData(pageNumber, sortingOption) {
 
   console.log(data);
   const results = data["results"];
-  const modifiedList = remapData(results);
+  const modifiedList = remapData(results); // slow
 
+  MOVIE_LIST = modifiedList;
   return modifiedList;
 }
 
 // Render the Data
 
 function renderMovies(movieList = []) {
-  // Something
-
   console.log(movieList);
 
   movieList.forEach((movie) => {
-    const movieCardHTMLElement = createCardForMovie(movie);
+    const { id } = movie; //238
+    const movieCardHTMLElement = createCardForMovie(movie); //
     movieListContainer.append(movieCardHTMLElement);
+
+    // Add Lister For the Fav button
+    // HERE cardContainerElement is GURANTEED INSIDE THE DOM
+    // const favElement = document.getElementById(`favorites${id}`);
+    const heartElement = document.getElementById(`icon${id}`);
+
+    heartElement.addEventListener("click", (event) => {
+      const movieIdILike = event.target.id;
+      const isFavMovie = heartElement.classList.contains("fa-heart");
+      if (isFavMovie) {
+        // Make it UnFav
+
+        removeMovieFromLocalStorage(movieIdILike);
+
+        heartElement.classList.add("fa-heart-o");
+        heartElement.classList.remove("fa-heart");
+      } else {
+        // MAKE IT FAV
+        // set in local storage.
+
+        setMoviesToLocalStorage(id);
+
+        heartElement.classList.remove("fa-heart-o");
+        heartElement.classList.add("fa-heart");
+      }
+    });
+
+    // DETERMINE if Each Movie IS FAV OR NOT
+    const favMovies = getMoviesToLocalStorage(); //[238, 248, 250]
+    const isFavMovie = favMovies.includes(id); // true
+    if (isFavMovie) {
+      heartElement.classList.remove("fa-heart-o");
+      heartElement.classList.add("fa-heart");
+    }
   });
 }
 
 function createCardForMovie(movie) {
   const { id, title, popularity, posterPath, voteAverage } = movie;
   const imageLink = `https://image.tmdb.org/t/p/original/${posterPath}`;
+
   const cardContainerElement = document.createElement("div"); // RED CARD DIV
   cardContainerElement.id = id;
   cardContainerElement.classList.add("card");
@@ -95,15 +131,13 @@ function createCardForMovie(movie) {
       </section>
 
 
-      <section id="favorites" class="favorites">
-        <i class="fa fa-heart" aria-hidden="true"></i>
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <section style="cursor:pointer;" id="favorites${id}" class="favorites">
+        <i id=icon${id} class="fa fa-heart-o" aria-hidden="true"></i>
       </section>
 
     </section>
   
   `;
-
   return cardContainerElement;
 }
 
@@ -164,12 +198,42 @@ sortByRateButtonElement.addEventListener("click", () => {
 
 // TABS
 
+function displayMoviesForSwitchTab(element) {
+  // Which Page is BasicallyThere
+
+  const id = element.id;
+  if (id === "all-tab") {
+    sortByRateButtonElement.style.display = "block";
+    sortByDateButtonElement.style.display = "block";
+    fecilitator();
+  } else if (id === "favourites-tab") {
+    clearMovies();
+
+    const favMovieListIds = getMoviesToLocalStorage();
+
+    const FavMovieList = MOVIE_LIST.filter((movie) => {
+      const { id } = movie;
+      return favMovieListIds.includes(id);
+    });
+
+    renderMovies(FavMovieList);
+    // console.log(FavMovieList);
+
+    sortByRateButtonElement.style.display = "none";
+    sortByDateButtonElement.style.display = "none";
+  } else {
+    // We can add more tabs ..
+  }
+}
+
 function switchTabs(event) {
   allTabButtonElement.classList.remove("active-tab");
   favouritesTabButtonElement.classList.remove("active-tab");
 
   const element = event.target;
   element.classList.add("active-tab");
+
+  displayMoviesForSwitchTab(element);
 }
 
 allTabButtonElement.addEventListener("click", switchTabs);
@@ -179,18 +243,15 @@ favouritesTabButtonElement.addEventListener("click", switchTabs);
 // FAVOURITES -> USE only Local Storage...
 
 function setMoviesToLocalStorage(newFavMovie) {
-  const prevFavMovies = getMoviesToLocalStorage();
-  const arrayOfFavMovies = [...prevFavMovies, newFavMovie];
+  // 900
+  const prevFavMovies = getMoviesToLocalStorage(); // [23, 240]
+  const arrayOfFavMovies = [...prevFavMovies, newFavMovie]; // [23, 240,900 ]
   localStorage.setItem("favMovie", JSON.stringify(arrayOfFavMovies));
 }
 
 function getMoviesToLocalStorage() {
   const allFavMovieObj = JSON.parse(localStorage.getItem("favMovie"));
-  if (
-    allFavMovieString === null ||
-    allFavMovieString === undefined ||
-    allFavMovieString === ""
-  ) {
+  if (!allFavMovieObj) {
     return [];
   } else {
     return allFavMovieObj;
@@ -198,7 +259,10 @@ function getMoviesToLocalStorage() {
 }
 
 function removeMovieFromLocalStorage(id) {
-  const allFavMovieObj = getMoviesToLocalStorage();
-  const filterdMovies = allFavMovieObj.filter((movie) => movie.id != id);
+  // ICON900
+  const allFavMovieObj = getMoviesToLocalStorage(); // [23, 240, 900]
+  const filterdMovies = allFavMovieObj.filter(
+    (ids) => Number(ids) !== Number(String(id).substring(4))
+  ); // [23, 240]
   localStorage.setItem("favMovie", JSON.stringify(filterdMovies));
 }
